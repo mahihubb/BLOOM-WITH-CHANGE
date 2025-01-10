@@ -10,7 +10,7 @@ seedButton.addEventListener("click", () => {
     // Wait for the animation to finish, then redirect
     setTimeout(() => {
         sessionStorage.setItem("seedPlanted", "true"); // Save state for the next page
-        window.location.href = "Features.html"; // Redirect to the brown page
+        window.location.href = "main/Features.html"; // Redirect to the brown page
     }, 2000); // Matches animation duration
 });
 
