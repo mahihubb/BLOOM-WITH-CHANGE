@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.12/fullpage.min.css" />
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+    }
+
+    .section {
+      text-align: center;
+      font-size: 3em;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section img {
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      object-fit: inherit;
+      margin: 20px auto;
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        0 1px 4px rgba(0, 0, 0, 0.15),
+        0 1px 0 rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section img:hover {
+      transform: scale(1.05);
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2),
+        0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #fp-nav ul li a span,
+    .fp-slidesNav ul li a span {
+      background: white;
+    }
+
+    h1 {
+      margin: 0 0 20px 0;
+    }
+
+    .content {
+      font-size: 1.5em;
+      max-width: 900px;
+      line-height: 1.5;
+
+    }
+
+    .content p {
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 700px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .section {
+        font-size: 1.5em;
+      }
+
+      .section img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .section p {
+      font-size: 30px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      bottom: 100px;
+    }
+
+
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .cssanimation {
+      text-align: center;
+    }
+
+    .section {
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .know-more-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      background-color: grey;
+      color: #fff;
+      border: 2px solid #16a085;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .know-more-btn:hover {
+      background-color: grey;
+      border-color: #1abc9c;
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .know-more-btn:focus {
+      outline: none;
+    }
+
+
+    .seed-fixed {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .seed-fixed:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="fullpage">
+    <div class="section" id="section1">
+      <div class="cssanimation pushReleaseFrom">
+        <h1>Welcome to Bloom 🌸</h1>
+      </div>
+      <p>A New Era of Connection and Growth</p>
+      <p>Transforming the digital experience through innovation, connection, and growth.</p>
+
+      <div class="seed-fixed">🌱</div>
+    </div>
+
+    <div class="section">
+      <img src="templates\images\ai.jpg" />
+      <h3> AI-Powered Content Creation 🤖✨</h3>
+      <div class="content">
+        <p>Create videos and static content tailored to your emotional state and goals. Bloom's AI tools ensure your
+          digital creations are meaningful, impactful, and resonate deeply.</p>
+
+        <a href="AI.html" class="know-more-btn">Know More</a>
+
+      </div>
+
+    </div>
+    <div class="section">
+      <img src="templates/images/bloom.jpg" />
+      <h3>Bloomscroll🌸📜</h3>
+      <div class="content">
+        <p>Resonance-Based Feed🌸📜 lets you log your emotions to shape the content you
+          see. It personalizes your feed to boost your mood with themes like love, creativity, and
+          encourages you to go beyond scrolling by reflecting or creating something meaningful.</p>
+        <a href="Bloomscroll.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+    <div class="section">
+      <img
+        src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        alt="Sprouting Plant">
+      <h3> Growth Journeys 🌱📈</h3>
+      <div class="content">
+        <p>Explore personalized feeds based on topics that inspire your personal and community growth, creating a
+          pathway for continuous learning and self-discovery.</p>
+        <a href=" Growth.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <img src="templates/images/medal.jpg" />
+      <h3> Bloomscore 🎖</h3>
+      <div class="content">
+        <p>Explore personalized feeds based on topics that inspire your personal and community growth, creating a
+          pathway for continuous learning and self-discovery.</p>
+        <a href="Score.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+    <div class="section">
+      <img src="templates/images/spark.jpg" />
+      <h3> Sparks ⚡️</h3>
+      <div class="content">
+        <p>Receive personalized prompts, questions, or challenges to inspire action, reflection, or creativity—sparking
+          growth in your daily life.</p>
+        <a href="Sparks.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="section">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgkVaZOtrxHjGz3XkpBG8d6KGKsC1JhZHpwA&s" />
+      <h3> Mindful Pause ⎯🕊</h3>
+      <div class="content">
+        <p>Encourages offline activities by nudging users to step away from their screens and take meaningful,
+          restorative
+          actions in the real world.</p>
+        <a href="Mindful.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+    <div class="section">
+      <img src="https://appsamurai.com/wp-content/uploads/2020/12/user-experience-1.jpg" />
+      <h3> Empowerments 🔋🌟</h3>
+      <div class="content">
+        <p>Content creators are rewarded based on the resonance of their creations. Bloom recognizes and amplifies
+          impactful contributions that move and inspire others.</p>
+        <a href="Empower.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+    <div class="section">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSxuLzK3Bf95OLLR_EOWr_Zs-zHjIJWcw0g&s" />
+      <h3> Bloomsphere Impact Map 🔵🌐</h3>
+      <div class="content">
+        <p>A global map showcasing the collective impact of the Bloom community, fostering a sense of shared purpose and
+          connection across the world.</p>
+        <a href="Map.html" class="know-more-btn">Know More</a>
+
+      </div>
+    </div>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.12/fullpage.min.js"></script>
+  <script>
+
+    new fullpage('#fullpage', {
+      licenseKey: '',
+      navigation: true,
+      sectionsColor: [
+        '#ff5f45',
+        '#0798ec',
+        '#fc6c7c',
+        '#fec401',
+        '#ff006e',
+        '#0798ec',
+        '#0f3443',
+        '#58d68d',
+        '#964B00',
+        '#0f3443',
+        '#b0e57c',
+        '#ffae42'
+      ],
+    });
+    function scrollToSection1() {
+      fullpage_api.moveTo(1);
+    }
+
+  </script>
+</body>
+
+</html>

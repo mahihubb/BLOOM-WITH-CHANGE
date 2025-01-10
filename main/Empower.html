@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowerments 🔋</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f7fafc, #e4e7eb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .empowerments-container {
+            text-align: center;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .empowerments-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-title {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .moved-count {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #38b2ac, #3182ce);
+            width: 0;
+            transition: width 0.5s ease;
+        }
+
+        .interaction-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #38b2ac;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #2c7a7b;
+        }
+    </style>
+</head>
+<body>
+    <div class="empowerments-container">
+        <div class="empowerments-title">Empowerments 🔋</div>
+
+        <div class="content-section" id="content-section">
+            <div class="content-title">"The Ripple Effect of Kindness"</div>
+            <div class="moved-count" id="moved-count">Moved 0 people</div>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="interaction-buttons">
+            <button class="action-button" onclick="addEmpowerment(10)">Move 10 People</button>
+            <button class="action-button" onclick="addEmpowerment(50)">Move 50 People</button>
+            <button class="action-button" onclick="addEmpowerment(100)">Move 100 People</button>
+        </div>
+    </div>
+
+    <script>
+        let movedCount = 0;
+        const progressBar = document.getElementById('progress-bar');
+        const movedCountElement = document.getElementById('moved-count');
+
+        function addEmpowerment(count) {
+            movedCount += count;
+            movedCountElement.textContent = `Moved ${movedCount} people`;
+
+            const progressPercentage = Math.min(movedCount / 10, 100); 
+            progressBar.style.width = `${progressPercentage}%`;
+
+            if (progressPercentage >= 100) {
+                progressBar.style.background = 'linear-gradient(90deg, #f56565, #ed8936)';
+            }
+        }
+    </script>
+</body>
+</html>

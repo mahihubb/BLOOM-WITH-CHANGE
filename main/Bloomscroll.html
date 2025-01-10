@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom - Resonance Feature</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    /* Mood Check-In */
+    .mood-checkin {
+      text-align: center;
+      padding: 20px;
+      background: #e0f7fa;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+
+    .mood-icons {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 15px;
+    }
+
+    .mood-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .mood-icon img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .mood-icon span {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .mood-icon:hover {
+      transform: scale(1.2);
+    }
+
+    /* Vibrational Curation Feed */
+    .feed {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feed-item {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feed-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .feed-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .feed-item h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .feed-item p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .feed-item button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .feed-item button:hover {
+      background: #004d40;
+    }
+
+    /* Encouragement Break */
+    .encouragement {
+      text-align: center;
+      padding: 15px;
+      margin: 30px 0;
+      background: #ffecb3;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .modal button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal button:hover {
+      background: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bloom - Resonance Feature</h1>
+
+<div class="container mood-checkin">
+    <h2>How are you feeling today?</h2>
+    <div class="mood-icons">
+      <div class="mood-icon" onclick="showMoodFeed('Happy')">
+        <img src="https://em-content.zobj.net/thumbs/240/apple/325/smiling-face-with-smiling-eyes_1f60a.png" alt="Happy Emoji" width="50">
+        <span>Happy</span>
+      </div>
+      <div class="mood-icon" onclick="showMoodFeed('Relaxed')">
+        <img src="https://img.icons8.com/emoji/96/smiling-face-with-hearts.png" alt="Relaxed">
+        <span>Relaxed</span>
+      </div>
+      <div class="mood-icon" onclick="showMoodFeed('Creative')">
+        <img src="https://img.icons8.com/emoji/96/artist-palette.png" alt="Creative">
+        <span>Creative</span>
+      </div>
+      <div class="mood-icon" onclick="showMoodFeed('Grateful')">
+        <img src="https://em-content.zobj.net/thumbs/240/apple/325/folded-hands_1f64f.png" alt="Grateful Emoji" width="50">
+        <span>Grateful</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Feed for Happy Mood -->
+  <div class="container feed" id="HappyFeed" style="display: none;">
+    <h2>Happy Vibes 🎉</h2>
+    <div class="feed-item">
+      <img src="https://images.unsplash.com/photo-1520453803296-c39eabe2dab4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Joyful Playlist" >
+      <h3>Joyful Playlist</h3>
+      <p>Listen to an uplifting playlist to keep the energy high!</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Celebration">
+      <h3>Photo Challenge</h3>
+      <p>Snap a photo of your brightest smile today!</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="https://images.unsplash.com/photo-1497005367839-6e852de72767" alt="Happy Outdoors">
+      <h3>Outdoor Activity</h3>
+      <p>Take a walk and embrace the fresh air!</p>
+      <button>Boost My Vibe</button>
+    </div>
+  </div>
+  
+  <div class="container feed" id="RelaxedFeed" style="display: none;">
+    <h2>Relaxation Corner 🛋️</h2>
+    <div class="feed-item">
+      <img src="templates/images/meditation.jpg" alt="Meditation">
+      <h3>5-Minute Meditation</h3>
+      <p>Try this simple breathing technique to clear your mind.</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="templates/images/tea.jpg" alt="Warm Cup of Tea" >
+      <h3>Tea Time</h3>
+      <p>Prepare a warm cup of tea and enjoy a moment of stillness.</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="templates/images/candle.jpg" alt="Candlelit Relaxation">
+      <h3>Ambiance Setup</h3>
+      <p>Light a candle and relax with your favorite book or show.</p>
+      <button>Boost My Vibe</button>
+    </div>
+  </div>
+  
+  <div class="container feed" id="CreativeFeed" style="display: none;">
+    <h2>Creative Sparks 🎨</h2>
+    <div class="feed-item">
+      <img src="templates/images/art.jpg" alt="Art Supplies">
+      <h3>Art Exploration</h3>
+      <p>Sketch or paint whatever comes to mind today!</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="templates/images/story.jpg" alt="Notebook">
+      <h3>Writing Prompt</h3>
+      <p>Write a short story inspired by your current surroundings.</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="templates/images/music.jpg" alt="Music">
+      <h3>Music Composition</h3>
+      <p>Create a playlist or even try composing a tune of your own!</p>
+      <button>Boost My Vibe</button>
+    </div>
+  </div>
+  
+  <div class="container feed" id="GratefulFeed" style="display: none;">
+    <h2>Grateful Reflections 🙏</h2>
+    <div class="feed-item">
+      <img src="templates/images/journal.jpg" alt="Gratitude Journal">
+      <h3>Gratitude Journal</h3>
+      <p>Write down three things you’re thankful for today.</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="templates/images/nature.jpg" alt="Nature Walk">
+      <h3>Nature Connection</h3>
+      <p>Spend a moment in nature and appreciate its beauty.</p>
+      <button>Boost My Vibe</button>
+    </div>
+    <div class="feed-item">
+      <img src="https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c" alt="Thank You Note">
+      <h3>Thank You Note</h3>
+      <p>Write or text a heartfelt 'Thank You' to someone special.</p>
+      <button>Boost My Vibe</button>
+    </div>
+  </div>
+  
+  <script>
+    function showMoodFeed(mood) {
+      document.querySelectorAll('.feed').forEach(feed => feed.style.display = 'none');
+      document.getElementById(mood + 'Feed').style.display = 'grid';
+    }
+  </script>
+  
+</body>
+</html>

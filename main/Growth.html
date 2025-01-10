@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom - Resonance Feature Enhanced</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #e3f2fd, #fff);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    .mood-checkin,
+    .feed,
+    .gamification,
+    .suggestions {
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .mood-icons {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .mood-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .mood-icon img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .mood-icon span {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .mood-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .feed-item,
+    .gamification-item,
+    .suggestion-item {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feed-item img,
+    .suggestion-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .feed-item:hover,
+    .gamification-item:hover,
+    .suggestion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #004d40;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bloom - Resonance Feature Enhanced</h1>
+
+  <div class="container mood-checkin">
+    <h2>How are you feeling today?</h2>
+    <div class="mood-icons">
+      <div class="mood-icon" onclick="setMood('Happy')">
+        <img src="https://em-content.zobj.net/thumbs/240/apple/325/smiling-face-with-smiling-eyes_1f60a.png"
+          alt="Happy Emoji">
+        <span>Happy</span>
+      </div>
+      <div class="mood-icon" onclick="setMood('Relaxed')">
+        <img src="https://img.icons8.com/emoji/96/smiling-face-with-hearts.png" alt="Relaxed">
+        <span>Relaxed</span>
+      </div>
+      <div class="mood-icon" onclick="setMood('Creative')">
+        <img src="https://img.icons8.com/emoji/96/artist-palette.png" alt="Creative">
+        <span>Creative</span>
+      </div>
+      <div class="mood-icon" onclick="setMood('Grateful')">
+        <img src="https://em-content.zobj.net/thumbs/240/apple/325/folded-hands_1f64f.png" alt="Grateful Emoji">
+        <span>Grateful</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container feed">
+    <h2>Your Personalized Feed</h2>
+    <div id="feed"></div>
+  </div>
+
+  <div class="container gamification">
+    <h2>Your Progress</h2>
+    <div id="gamification"></div>
+  </div>
+
+  <div class="container suggestions">
+    <h2>Personalized Suggestions</h2>
+    <div id="suggestions"></div>
+  </div>
+
+  <script>
+    const moodData = {
+      Happy: [
+        { title: "Uplifting Playlist", desc: "Listen to a playlist to keep your vibe high!" },
+        { title: "Joyful Journal", desc: "Write about things that made you smile today." },
+        { title: "Dance It Out", desc: "Put on your favorite song and dance!" }
+      ],
+      Relaxed: [
+        { title: "Meditation Guide", desc: "Try this 5-minute meditation session." },
+        { title: "Nature Sounds", desc: "Relax to the sounds of nature." },
+        { title: "Stretch Routine", desc: "Follow this quick stretching guide." }
+      ],
+      Creative: [
+        { title: "Art Challenge", desc: "Draw something that inspires you." },
+        { title: "Photo Contest", desc: "Capture a moment of beauty today." },
+        { title: "DIY Project", desc: "Create something with items you have at home." }
+      ],
+      Grateful: [
+        { title: "Gratitude Journal", desc: "Write about three things you're grateful for." },
+        { title: "Kindness Activity", desc: "Do something kind for someone today." },
+        { title: "Reflection Time", desc: "Spend 10 minutes reflecting on positive moments." }
+      ]
+    };
+
+    const suggestions = [
+      { title: "Evening Reflection", desc: "Relax and reflect on your day." },
+      { title: "Motivational Quote", desc: '"Success is not final, failure is not fatal: It is the courage to continue that counts."' }
+    ];
+    const gamification = [
+      { title: "Mood Streak: 5 Days", desc: "Keep it up! You're on a roll!" },
+      { title: "Achievements: 3 Unlocked", desc: "You've unlocked 3 mood badges!" },
+      { title: "Points: 200", desc: "Earn more points by boosting your vibe." }
+    ];
+
+
+
+    function setMood(mood) {
+      updateFeed(mood);
+    }
+
+    function updateFeed(mood) {
+      const feed = document.getElementById('feed');
+      feed.innerHTML = '';
+      moodData[mood].forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('feed-item');
+        div.innerHTML = `
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+          <button>Boost My Vibe</button>
+        `;
+        feed.appendChild(div);
+      });
+    }
+
+    function updateGamification() {
+      const gamifyDiv = document.getElementById('gamification');
+      gamifyDiv.innerHTML = '';
+      gamification.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('gamification-item');
+        div.innerHTML = `
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        `;
+        gamifyDiv.appendChild(div);
+      });
+    }
+
+    function updateSuggestions() {
+      const suggestionDiv = document.getElementById('suggestions');
+      suggestionDiv.innerHTML = '';
+      suggestions.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('suggestion-item');
+        div.innerHTML = `
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        `;
+        suggestionDiv.appendChild(div);
+      });
+    }
+
+    updateGamification();
+    updateSuggestions();
+  </script>
+
+</body>
+
+</html>

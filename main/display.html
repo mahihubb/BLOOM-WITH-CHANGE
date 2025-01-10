@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Bloom Card</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .card {
+      max-width: 300px; 
+      margin: 0 auto;
+      padding: 15px; 
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 10%);
+      background-color: #fefae0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+    .card:hover {
+      transform: scale(1.1); 
+      box-shadow: 0 12px 30px rgb(0 0 0 / 20%); 
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .card .message {
+      font-size: 1rem;
+      color: #6b705c;
+      margin: 5px 0;
+    }
+    .card .emojis {
+      font-size: 1.2rem;
+      margin: 5px 0;
+    }
+    a {
+      display: block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #4caf50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Bloom Card 🌸</h1><br>
+  <div class="card">
+    <img id="displayImage" src="" alt="Submitted Image">
+    <div class="message" id="displayMessage"></div>
+    <div class="emojis">🌟✨🌈💖</div>
+  </div><br>
+  <a href="index.html">Submit another message</a>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const message = urlParams.get('message');
+    const imageData = urlParams.get('image');
+
+    if (message && imageData) {
+      document.getElementById('displayMessage').textContent = message;
+      document.getElementById('displayImage').src = imageData;
+    } else {
+      document.querySelector('.card').textContent = "No data found!";
+    }
+  </script>
+</body>
+</html>

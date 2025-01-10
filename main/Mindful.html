@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Pause ⎯</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f0f8ff, #cce7f3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .pause-container {
+            text-align: center;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .pause-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0078d7;
+            margin-bottom: 10px;
+        }
+
+        .pause-message {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .activity-button {
+            display: inline-block;
+            margin: 5px 0;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #0078d7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .activity-button:hover {
+            background-color: #005bb5;
+        }
+
+        .countdown {
+            font-size: 14px;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .redirect-message {
+            display: none;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #0078d7;
+        }
+    </style>
+</head>
+<body>
+    <div class="pause-container">
+        <div class="pause-title">Mindful Pause ⎯</div>
+        <div class="pause-message">
+            You've been scrolling for a while. Let's take a moment to refresh your mind!
+        </div>
+        <button class="activity-button" onclick="redirect('bloomscrolling')">Bloomscroll</button>
+        <button class="activity-button" onclick="redirect('breathe')">Take a Breath</button>
+        <button class="activity-button" onclick="redirect('stretch')">Stretch for 1 Minute</button>
+        <div class="countdown">Redirecting in <span id="timer">10</span> seconds...</div>
+        <div class="redirect-message" id="redirect-message">Redirecting to your selected activity...</div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        let timer = 10;
+        const timerElement = document.getElementById("timer");
+
+        const countdown = setInterval(() => {
+            if (timer > 0) {
+                timer--;
+                timerElement.textContent = timer;
+            } else {
+                clearInterval(countdown);
+                document.getElementById("redirect-message").style.display = "block";
+                setTimeout(() => {
+                    window.location.href = "https://bloomscrolling.example.com";
+                }, 1000);
+            }
+        }, 1000);
+
+        // Redirect Function
+        function redirect(activity) {
+            clearInterval(countdown);
+            const redirectMessage = document.getElementById("redirect-message");
+            redirectMessage.style.display = "block";
+            redirectMessage.textContent = `Redirecting to ${activity}...`;
+            setTimeout(() => {
+                window.location.href = `https://example.com/${activity}`;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
